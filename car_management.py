@@ -50,4 +50,4 @@ print(CarManager.all_cars[1]) # Verify Service got Added
 
 # Updating Mileage of Truck
 CarManager.all_cars[2].mileage += 50
-print(CarManager.all_cars[2]) # View Mileage got Updated
+print(CarManager.all_cars[2]) # Verify Mileage got Updated
