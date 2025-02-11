@@ -17,25 +17,23 @@ class CarManager:
         self.year = year
         self.mileage = mileage
         self.services = services
+        CarManager.id += 1
+        CarManager.total_cars += 1
 
     def __repr__(self):
-        return f"Car Make: {self.make}, Car Model {self.model}, Car Year: {self.year}, Car Mileage {self.mileage}, Car Services {self.services}"
+        return f"Car ID: {self.id} Car Make: {self.make}, Car Model {self.model}, Car Year: {self.year}, Car Mileage {self.mileage}, Car Services {self.services}"
     
 
 # Adding Two Vehicle Instances
 car = {'make': 'toyota', 'model': 'corolla', 'year': 2010, "mileage": 200, "services": ['wash']}
 truck = {'make': 'honda', 'model': 'cr-v', 'year': 2019, "mileage": 100, "services": ['oil change', 'tire rotation']}
 car_class = CarManager(**car)
-CarManager.id += 1
 CarManager.all_cars[CarManager.id] = car_class
-CarManager.total_cars += 1
 truck_class = CarManager(**truck)
-CarManager.id += 1
 CarManager.all_cars[CarManager.id] = truck_class
-CarManager.total_cars += 1
 
 # Viewing All Cars:
-print(CarManager.all_cars)
+# print(CarManager.all_cars)
 
 # Viewing Total Number of Cars
 print(CarManager.total_cars)
@@ -46,8 +44,8 @@ print(CarManager.all_cars[2]) # View Truck
 
 # Adding Servicing to Car
 CarManager.all_cars[1].services.append("break")
-print(CarManager.all_cars[1]) # Verify Service got Added
+#print(CarManager.all_cars[1]) # Verify Service got Added
 
 # Updating Mileage of Truck
 CarManager.all_cars[2].mileage += 50
-print(CarManager.all_cars[2]) # Verify Mileage got Updated
+#print(CarManager.all_cars[2]) # Verify Mileage got Updated
