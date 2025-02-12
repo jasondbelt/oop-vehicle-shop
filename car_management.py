@@ -1,3 +1,19 @@
+# # How to Solve Coding Problems:
+"""
+1. Break each problem down into as many little pieces as possible.
+- Parameter, Return, Examples, Pseudocode
+2. When it comes to turning pseudocode into actual code
+- Constantly test code line by line, even if it might seem trivial.
+3. Twenty Minute Rule: After being stuck and exhausting all resources... 
+   - then seek solution or personal help
+   - no shame, because if you're genuinely stuck for too long, you're not being productive anymore
+   - but with personal help, make sure you can explain what you've done
+4. Write solution(s) youself, add multiple comments to ensure you understand each line.
+5. Come Back Later to re-do problem from scratch to see if you remember.
+6. If you find you get still stuck, just repeat this process at the step you got stuck on.
+***There are no shortcuts or quick fixes. As much hands on as you can get is the only way to progress***
+***Limit content consuming as it can turn into a never-ending time-wasting trap.***
+"""
 # # Create a class named CarManager
 class CarManager:
     # # CLASS ATTRIBUTES
@@ -6,8 +22,8 @@ class CarManager:
 
     # # INSTANCE ATTRIBUTES
     def __init__(self, id, make, model, year):
-        self._id = id # int that won't repeat and rise with each new car instance
-        self._make = make    # str 
+        self._id = id # int that won't repeat and increment by 1 with each new car instance
+        self._make = make # str 
         self._model = model # str
         self._year = year # int
         self._mileage = 0 # int
@@ -68,7 +84,7 @@ class CarManager:
     #DEFINE TERMINAL APPLICATION METHODS
     def add_car():
         # get input from user for required instance attributes
-        id = CarManager.total_cars + 1
+        id = CarManager.total_cars + 1 # id corresponds to total_cars class attribute
         make = input("Enter car make: ")
         model = input("Enter car model: ")
         year = int(input("Enter manufacturing year: "))
@@ -124,14 +140,17 @@ class CarManager:
 
     # run terminal application
     def run_terminal():
+        # local variables
         boolean = True
         choice_list = [1,2,3,4,5,6,7]
 
+        # continually prompt user with options menu until they quit
         while boolean == True:
             CarManager.options()
             try:
                 option = int(input())
                 flag = any(x == option for x in choice_list)
+                # only accounts for covering user entering invalid number
                 if not flag:
                     print("Invalid Number! Try Again!\n")
                 if option == 1:
@@ -148,12 +167,11 @@ class CarManager:
                     CarManager.update_mileage()
                 elif option == 7:
                    print("Goodbye!")
+                   # changing local variable to False exits while loop and program
                    boolean = False
+            # accounts for all other user input errors.
             except ValueError: 
                 print("Invalid Choice! Try Again!\n")
-                continue
+                
     
 CarManager.run_terminal()
-
-
-
